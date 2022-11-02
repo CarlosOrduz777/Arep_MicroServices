@@ -10,10 +10,11 @@ import java.util.Map;
 public class InMemoryPersistence implements TweetPersistence {
     //Map of all tweets in system
     private Map<String,String> tweets = new HashMap<>();
+    int userControl ;
 
 
     public InMemoryPersistence(){
-
+        userControl = 4;
         List<String> defaultTweets = new ArrayList<>();
         String tweet1 = "Esta haciendo FRIO";
         String tweet2 = "Estamos en clase de AREP";
@@ -29,6 +30,19 @@ public class InMemoryPersistence implements TweetPersistence {
 
     @Override
     public void addTweet(String tweet) {
-        tweets.put("Anonimo",tweet);
+
+        tweets.put("Anonimo"+ String.valueOf(userControl),tweet);
+
+        for (Map.Entry<String,String> entry : tweets.entrySet()){
+            System.out.println("Key = " + entry.getKey() +
+                    ", Value = " + entry.getValue());
+        }
+        userControl++;
+
+    }
+
+    @Override
+    public List consulttweets() {
+        return new ArrayList<>(tweets.values());
     }
 }

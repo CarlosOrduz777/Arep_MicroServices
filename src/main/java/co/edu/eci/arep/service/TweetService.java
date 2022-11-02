@@ -2,6 +2,8 @@ package co.edu.eci.arep.service;
 
 import co.edu.eci.arep.persistence.impl.InMemoryPersistence;
 
+import java.util.List;
+
 public class TweetService {
 
     private InMemoryPersistence inMemoryPersistence = new InMemoryPersistence();
@@ -12,5 +14,13 @@ public class TweetService {
      */
     public void addTweet(String tweet){
         inMemoryPersistence.addTweet(tweet);
+    }
+
+    /**
+     * Consulta de todos los tweets que se han agregado
+     * @return
+     */
+    public List consultTweets(){
+       return inMemoryPersistence.consulttweets();
     }
 }
