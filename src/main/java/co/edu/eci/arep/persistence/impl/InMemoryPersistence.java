@@ -1,6 +1,7 @@
 package co.edu.eci.arep.persistence.impl;
 
 import co.edu.eci.arep.model.Tweet;
+import co.edu.eci.arep.model.User;
 import co.edu.eci.arep.persistence.TweetPersistence;
 
 import java.util.ArrayList;
@@ -11,7 +12,7 @@ import java.util.stream.Collectors;
 
 public class InMemoryPersistence implements TweetPersistence {
     //Map of all tweets in system
-    private Map<String, Tweet> tweets = new HashMap<>();
+    private Map<User, Tweet> tweets = new HashMap<>();
 
 
     public InMemoryPersistence(){
@@ -25,11 +26,15 @@ public class InMemoryPersistence implements TweetPersistence {
         defaultTweets.add(tweet2);
         defaultTweets.add(tweet3);
         **/
-        Tweet tweet1 = new Tweet("Esta haciendo FRIO");
-        Tweet  tweet2 = new Tweet("Estamos en clase de AREP");
 
-        tweets.put("Anonimo1:",tweet1);
-        tweets.put("Anonimo2:",tweet2);
+        User user1 = new User("carlos");
+        Tweet tweet1 = new Tweet("Esta haciendo FRIO",user1);
+        Tweet  tweet2 = new Tweet("Estamos en clase de AREP",user1);
+
+
+
+        tweets.put(user1,tweet1);
+        tweets.put(user1,tweet2);
 
     }
 
