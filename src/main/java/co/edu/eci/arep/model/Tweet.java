@@ -18,8 +18,8 @@ public class Tweet {
 
     @Override
     public String toString() {
-        return "Tweet{" +
-                "text='" + text + '\'' +
+        return "{Tweet:'" +
+                text + '\'' +
                 '}';
     }
 }
